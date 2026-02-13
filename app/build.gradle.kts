@@ -27,18 +27,25 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+    tasks.withType<Test>{
+        useJUnitPlatform()
     }
+
 }
 
 dependencies {
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+//    testImplementation("org.junit.jupiter:junit-jupiter-api:5.0.1")
+//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.0.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.0.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:6.0.2")
+    implementation(files("C:\\Users\\xewdg\\AppData\\Local\\Android\\Sdk\\platforms\\android-36\\android.jar"))
 }
